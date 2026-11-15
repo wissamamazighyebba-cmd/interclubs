@@ -258,7 +258,7 @@ function autoStage(){
 function curK(){return ui.k||autoStage()}
 /* Clubs affichés : les 5 meilleurs au stade commun, plus le CNM et les clubs « toujours affichés ». */
 function shown(){
-  var K=autoStage(),top=standingAll(K).filter(function(x){return!x.t.us}).slice(0,TOP).map(function(x){return x.t});
+  var K=autoStage(),top=standingAll(K).filter(function(x){return!x.t.us&&!x.t.next}).slice(0,TOP).map(function(x){return x.t});
   var extra=state.teams.filter(function(t){return(t.us||t.honor||t.next)&&top.indexOf(t)<0&&(t.us||t.next||done(t)>0)});
   return top.concat(extra);
 }
